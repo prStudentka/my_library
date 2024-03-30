@@ -1,1 +1,2 @@
-# my_library
+Django project
+add .env
