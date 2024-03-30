@@ -1,0 +1,13 @@
+  <h1> Редактировать информацию о книге</h1>
+
+<form method="post"  enctype="multipart/form-data">
+        {% csrf_token %}
+<a style=" border-radius: 3px; background: dodgerblue; text-decoration: none; color: snow; padding: 0.5rem 0.5rem; " href="{{ object.get_absolute_url}}">Назад</a><br><br>
+         {% for field in form %}
+             <label for="{{ field.id_for_label }}"> {{ field.label }}</label><br>
+             {{ field }} <br><br>
+
+         {% endfor %}
+        <input class="btn btn-success" type="submit" value="Отправить">
+
+       </form>

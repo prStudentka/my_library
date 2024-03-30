@@ -1,0 +1,47 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<div class="info">
+
+    <div class="center">
+
+    <h1>{{ bookInfo.author }}: {{ bookInfo.title }}</h1>
+    <br><br>
+        {% if bookInfo.picture != "" %}
+              <img src="{{ bookInfo.picture.url }}" width="18%" height="30%">
+        {% else %}
+              <img src="{% static 'image/book.jpg' %}" width="10%" height="10%">
+        {% endif %}
+        <br><br>
+    Автор:<b> {{ bookInfo.author }}</b><br>
+    Кол-во страниц: {{ bookInfo.pages }}<br>
+    Обложка: {{ bookInfo.type_cover }}<br>
+    Размер: {{ bookInfo.get_size_display }} мм<br>
+    Дата публикации: {{ bookInfo.date_public }}<br><br>
+    </div>
+
+    <p style="alignment: left; ">
+    <i>Описание:</i> {{ bookInfo.description }}<br><br>
+
+        Цена: <b>{{ bookInfo.price }} руб.</b><br><br>
+    В наличии:<b style="color: dodgerblue"> {% if bookInfo.exist %} Да
+               {% else %} Нет
+               {% endif %} <br><br>
+    </b>
+
+{% if perms.book.edit_book %}
+    <a style=" border-radius: 3px; background: dodgerblue; text-decoration: none; color: snow; padding: 0.5rem 0.5rem; " href="{% url 'edit_book_view' bookInfo.pk %}">&#128397; Редактировать </a>
+    <br><br>
+
+    <form method="post" action="{% url "del_book_view" bookInfo.pk %}">
+        {% csrf_token %}
+        <input type="submit" value="Удалить книгу">
+    </form> <br><br>
+{% endif %}
+ <form method="post" action="{% url "add_basket" bookInfo.pk %}">
+        {% csrf_token %}
+     {{ basket_form }}
+        <input type="submit" value="Добавить в корзину">
+    </form> <br><br>
+    <a href="{% url 'list' %}"> Назад</a>
+    </p>
+</div>

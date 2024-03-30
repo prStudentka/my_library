@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block head %}
+   <h1> {{ title }}</h1>
+<a href="{% url 'main' %}"> Назад</a>
+<br>
+{% endblock %}
+{% block content %}
+{% load static %}
+<link href="{% static 'css/style.css'%}" rel="stylesheet">
+{% for item in list %}
+
+        <div class="style">
+        <h2 style="color: indigo;"> {{ item.name }} </h2>
+        <p style="text-align: left; " >
+
+            <i>Описание:</i> {{ item.description}} <br><br>
+            {% for i in book %}
+                {% if item.pk == i.category.pk %}
+                     <ul>
+                    <a  href="{% url 'detail' i.pk %}" > {{ i.title}} </a><br>
+                    </ul>
+                {% endif %}
+             {% endfor %}
+        </p>
+        </div>
+
+<br><br>
+{% endfor %}
+
+{% endblock %}

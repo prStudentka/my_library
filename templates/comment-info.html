@@ -1,0 +1,16 @@
+  <h1> Комментарий к книге</h1>
+<a href="{% url 'list_com_view' %}"> Назад</a><br><br>
+
+      <p>  {{ detail.book }} <br>
+          Тема: {{ detail.theme }} <br><br>
+      Сообщение: <br>{{ detail.text }}
+      </p>
+    <br><br>
+
+<a style=" border-radius: 3px; background: dodgerblue; text-decoration: none; color: snow; padding: 0.5rem 0.5rem; " href="{% url 'edit_com_view' detail.pk %}">Редактировать</a>
+  <br><br>
+<form method="post" action="{% url "del_com_view" object.pk %}">
+        {% csrf_token %}
+        <input type="submit" value="Удалить комментарий">
+    </form> <br><br>
+

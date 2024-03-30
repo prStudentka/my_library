@@ -1,0 +1,29 @@
+{% load static %}
+<link href="{% static 'css/style.css'%}" rel="stylesheet" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% block title %}
+<div class="navbar">
+    <h1> {{ title }}</h1>
+    <a href="{% url 'main' %}"> Назад</a><br>
+</div>
+{% endblock %}
+
+{% for item in list %}
+
+        <div class="style">
+        <h2 style="color: indigo;"> {{ item.title }} </h2>
+        <p style="text-align: left; " >
+            {% if item.picture != "" %}
+                 <img class="float" src=" {{ item.picture.url }}" width="10%" height="20%" >
+            {% endif %}<br><br>
+
+            Цена:<b> {{ item.price }} руб. </b> <br><br>
+            <i>Описание:</i> {{ item.description|truncatechars:150 }} <br><br>
+
+            <a class="button" href="{% url 'detail' item.pk %}">Подробнее</a> <br>
+        </p>
+        </div>
+
+<br><br>
+{% endfor %}

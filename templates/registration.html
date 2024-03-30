@@ -1,0 +1,11 @@
+ {% load static %}
+ <link href="{% static 'css/style.css'%}" rel="stylesheet">
+ <div class="center">
+<h1> Регистрация пользователя</h1>
+<a href="{% url 'main' %}"> Назад</a>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зарегистрироваться</button>
+</form>
+ </div>

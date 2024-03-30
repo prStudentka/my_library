@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+Жалобы и предложения
+{% endblock %}
+{% block head %}
+ <a href="{% url 'main' %}"> Главная</a><br>
+{% endblock %}
+{% block content %}
+    <div class="center">
+    <h1>Жалобы и предложения</h1><br>
+<form method="post">
+    {% csrf_token %}
+    {{ form.subject.label }}<br>
+     {{ form.subject }}<br><br>
+    {{ form.sender.label }}<br>
+     {{ form.sender }}<br><br>
+     {{ form.content.label }}<br>
+    {{ form.content }}<br><br>
+    <button type="submit">Отправить</button>
+</form>
+    </div>
+
+{% endblock %}

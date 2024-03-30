@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block head %}
+   <div class="center" style="color: indigo;">
+   <h1> {{ title }}</h1>
+        <a href="{% url 'main' %}"> Назад</a><br>
+       <a href="{% url 'clear_basket' %}" >Очистить корзину</a>
+    </div>
+
+{% endblock %}
+{% block content %}
+{% load static %}
+<link href="{% static 'css/style.css'%}" rel="stylesheet">
+    <div class="info">
+
+{% for item in list %}
+
+         <i>Дата заказа:</i> {{  item.date }}<br>
+            <i>Номер заказа:</i> №{{ item.pk }}<br>
+            <i>Заказчик:</i> {{ item.user }}<br>
+        <div class="center">
+           <br>
+                {% for i in books %}
+                     <ul>
+                         {{ i}} <br>
+                    </ul>
+                {% endfor %}
+
+        </div><br><br>
+        <i>Статус:</i> <b style="color: #00dd00">{{  item.status }}</b><br><br>
+    </div>
+
+{% endfor %}
+
+{% endblock %}

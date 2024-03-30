@@ -1,0 +1,11 @@
+  <h1> Комментарий к книге</h1>
+<form method="post">
+        {% csrf_token %}
+         {% for field in form %}
+             <label for="{{ field.id_for_label }}"> {{ field.label }}</label><br>
+             {{ field }} <br><br>
+         {% endfor %}
+        <input class="btn btn-success" type="submit" value="Добавить комментарий">
+
+
+       </form>
