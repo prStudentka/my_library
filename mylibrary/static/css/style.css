@@ -1,0 +1,41 @@
+p.center {
+    text-align: center;
+}
+
+div.center {
+    text-align: center;
+}
+
+div.style {
+    background: whitesmoke;
+    border-radius: 3px;
+    padding: 0.5rem 0.5rem;
+    margin-left: 0.7rem;
+    margin-right: 2rem;
+}
+div.info {
+    margin-top: 3rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
+    background: whitesmoke;
+    padding: 1.5rem 1rem;
+}
+a.button {
+    border-radius: 3px;
+    background: dodgerblue;
+    text-decoration: none;
+    color: snow;
+    padding: 0.5rem 0.5rem;
+}
+.float {
+    float: left;
+    margin: 20px 27px 7px 7px;
+
+}
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
