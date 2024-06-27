@@ -1,4 +1,3 @@
-My library
 
 ### About
 My library - service for order books. Registration and authentication are required to work with the system.
@@ -13,4 +12,21 @@ djangorestframework
 pillow
 
 ----------
-add .env
+Create file for enviromental variables:
+
+    .env
+
+Create variables:
+
+ - SECRET_KEY='{your secret key}',
+ - NAME = '{your secret text}',
+ - USER = '{your secret text}',
+ - PASSWORD = '{your secret text}',
+ - HOST = '{your secret text}',
+ - PORT = '{your secret text}',
+ - EMAIL_HOST_USER = '{your secret text}',
+ - EMAIL_HOST_PASSWORD = '{your secret text}',
+ - EMAIL_HOST = '{your secret text}',
+ - EMAIL_PORT = '{your secret text}',
+ - EMAIL_USE_SSL = '{your secret text}',
+ - EMAIL_USE_TLC = '{your secret text}'
